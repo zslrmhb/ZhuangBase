@@ -5,3 +5,4 @@ __pycache__/
 *.pyd
 .mypy_cache/
 src/**/__pycache__/
+notebooks/
