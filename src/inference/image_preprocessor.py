@@ -12,7 +12,7 @@ from torchvision.io import read_image
 
 class ImagePreprocessor(BasePreprocessor):
 
-    def __init__(self, model_name = "facebook/detr-restnet-50", use_fast = True):
+    def __init__(self, model_name = "facebook/detr-restnet-50", use_fast = True, device = None):
          self.model = model_name
          self.processor = AutoImageProcessor.from_pretrained(model_name,use_fast=use_fast)
          self.device = device

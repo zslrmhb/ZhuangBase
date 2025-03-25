@@ -22,3 +22,4 @@ class BaseEncoder(ABC):
     @abstractmethod
     def model_info(self) -> dict:
         '''return model metadata'''
+        pass

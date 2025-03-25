@@ -49,7 +49,7 @@ from src.core.vector_index import VectorIndex
 from src.models.image_db import ImageDB
 from src.inference.image_encoder import encode_image  # hypothetical
 
-image_db = ImageDB()
+image_db = DocDB()
 vector_index = VectorIndex(dim=512)
 
 # Add all images to vector index

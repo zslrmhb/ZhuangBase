@@ -12,7 +12,6 @@ class Document:
         self.tags = tags
         self.path = path
         
-        
 class DocDB:
     
     def __init__(self):

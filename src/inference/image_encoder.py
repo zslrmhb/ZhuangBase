@@ -26,10 +26,10 @@ class ImageEncoder(BaseEncoder):
             outputs = self.model(pixel_values=image_tensor)
             features = outputs.last_hidden_state.mean(dim=1).squeeze().cpu().numpy()
 
-        return features
+        return features # vecter
 
     def save_path(self,save_path):
-        self.mode.save_pretrained(save_path)
+        self.model.save_pretrained(save_path)
         print(f"Save model to {save_path}")
 
     def model_info(self) -> dict:
