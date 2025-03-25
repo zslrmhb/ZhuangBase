@@ -1,5 +1,5 @@
 ## An Image class to represent the image object
-class Image:
+class Document:
     
     def __init__(self, id: str, title: str, tags: list[str], path: str):
         self.id = id
@@ -13,37 +13,37 @@ class Image:
         self.path = path
         
         
-class ImageDB:
+class DocDB:
     
     def __init__(self):
-        self.imageDB = {}
+        self.docDB = {}
         
         
-    def add_image_with_para(self, id: str, title: str, tags: list[str], path: str):
-        image = Image(id, title, tags, path)
-        self.imageDB[id] = image
+    def add_document_with_para(self, id: str, title: str, tags: list[str], path: str):
+        image = Document(id, title, tags, path)
+        self.docDB[id] = image
         
         
-    def add_image_with_object(self, id: str, image: Image):
-        self.imageDB[id] = image
+    def add_document_with_object(self, id: str, document: Document):
+        self.docDB[id] = document
         
         
-    def get_image(self, id: str) -> Image | None:
-        return self.imageDB[id]
+    def get_document(self, id: str) -> Document | None:
+        return self.docDB[id]
     
     
-    def update_image_with_para(self, id: str, title: str, tags: list[str], path: str):
-        self.imageDB.get(id).update(title, tags, path)
+    def update_document_with_para(self, id: str, title: str, tags: list[str], path: str):
+        self.docDB.get(id).update(title, tags, path)
         
         
-    def update_image_with_object(self, id: str, image: Image):
-        self.imageDB[id] = image
+    def update_document_with_object(self, id: str, document: Document):
+        self.docDB[id] = document
         
         
-    def delete_image(self, id: str):
-        if id in self.imageDB:
-            del self.imageDB[id]
+    def delete_document(self, id: str):
+        if id in self.docDB:
+            del self.docDB[id]
         
         
-    def get_all_images(self) -> list[Image]:
-        return list(self.imageDB.values())
+    def get_all_document(self) -> list[Document]:
+        return list(self.docDB.values())
