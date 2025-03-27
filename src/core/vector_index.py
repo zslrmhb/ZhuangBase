@@ -1,3 +1,4 @@
+# pip install faiss-cpu
 import faiss
 import numpy as np
 from typing import List, Tuple
@@ -39,41 +40,3 @@ class VectorIndex:
 
     def load(self, path: str):
         self.index = faiss.read_index(path)
-
-
-
-"""
-Example code from 好朋友 for how to use document_store and vector_index
-
-from src.core.vector_index import VectorIndex
-from src.models.image_db import ImageDB
-from src.inference.image_encoder import encode_image  # hypothetical
-
-image_db = DocDB()
-vector_index = VectorIndex(dim=512)
-
-# Add all images to vector index
-image_ids = []
-image_vectors = []
-
-for img in image_db.get_all_images():
-    vec = encode_image(img.path)  # should return np.ndarray of shape (512,)
-    image_ids.append(img.id)
-    image_vectors.append(vec)
-
-image_vectors = np.stack(image_vectors)
-vector_index.add(image_vectors, image_ids)
-
-
-----------------
-Search
-
-query_embedding = encode_image("query.jpg")
-top_results = vector_index.search(query_embedding, top_k=5)
-
-for img_id, distance in top_results:
-    image = image_db.get_image(img_id)
-    print(f"{image.title} - Distance: {distance:.2f}")
-
-
-"""

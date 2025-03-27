@@ -11,7 +11,7 @@ class Document:
         self.title = title
         self.tags = tags
         self.path = path
-        
+     
 class DocDB:
     
     def __init__(self):
@@ -28,6 +28,8 @@ class DocDB:
         
         
     def get_document(self, id: str) -> Document | None:
+        if id not in self.docDB:
+            return None
         return self.docDB[id]
     
     
