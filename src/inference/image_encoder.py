@@ -1,6 +1,6 @@
-from .base_encoder import BaseEncoder
-from .image_preprocessor import ImagePreprocessor
-from transformers import AutoModel, AutoImagePreprocessor
+from base_encoder import BaseEncoder
+from image_preprocessor import ImagePreprocessor
+from transformers import AutoModel, AutoImageProcessor
 import torch
 
 class ImageEncoder(BaseEncoder):
@@ -16,19 +16,19 @@ class ImageEncoder(BaseEncoder):
         if model_name:
             self.model_name = model_name
 
-        self.model = AutoModel.from_pretrained(self.model).to(self.device)
+        self.model = AutoModel.from_pretrained(self.model_name).to(self.device)
         self.model.eval()
         print(f"Model '{self.model_name}' loaded successfully on {self.device}.")
 
     def encode(self, image_path):
-        image_tensor = self.processor.processor(image_path)
+        image_tensor = self.processor.preprocess(image_path)
         with torch.no_grad():
             outputs = self.model(pixel_values=image_tensor)
             features = outputs.last_hidden_state.mean(dim=1).squeeze().cpu().numpy()
 
         return features # vecter
 
-    def save_path(self,save_path):
+    def save_model(self,save_path):
         self.model.save_pretrained(save_path)
         print(f"Save model to {save_path}")
 
