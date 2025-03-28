@@ -1,6 +1,6 @@
-from .base_encoder import BaseEncoder
-from .image_preprocessor import ImagePreprocessor
-from transformers import AutoModel, AutoImagePreprocessor
+from base_encoder import BaseEncoder
+from image_preprocessor import ImagePreprocessor
+from transformers import AutoModel, AutoImageProcessor
 import torch
 
 class ImageEncoder(BaseEncoder):
@@ -28,7 +28,7 @@ class ImageEncoder(BaseEncoder):
 
         return features # vecter
 
-    def save_path(self,save_path):
+    def save_model(self,save_path):
         self.model.save_pretrained(save_path)
         print(f"Save model to {save_path}")
 

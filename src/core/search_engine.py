@@ -47,6 +47,8 @@ class SearchEngine:
         input_type = query.input_type
         top_k = query.top_k
 
+        
+
     def save_index(self):
         """Persist vector index and/or metadata to disk"""
         pass

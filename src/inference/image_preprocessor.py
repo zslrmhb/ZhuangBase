@@ -4,7 +4,7 @@ Image preprocessing
 'pip install torch torchvision transformers'
 '''
 
-from .base_preprocessor import BasePreprocessor
+from base_preprocessor import BasePreprocessor
 from transformers import AutoImageProcessor
 import torch
 from torchvision.io import read_image
