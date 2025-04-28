@@ -28,19 +28,5 @@ class ImageEncoder(BaseEncoder):
 
         return features # vecter
 
-    def save_model(self,save_path):
-        self.model.save_pretrained(save_path)
-        print(f"Save model to {save_path}")
-
-    def model_info(self) -> dict:
-        """Return model metadata."""
-        return {
-            "model_name": self.model_name,
-            "model_type": "Image Encoder",
-            "framework": "Hugging Face Transformers",
-            "device": str(self.device),
-        }
-        
-
 
         

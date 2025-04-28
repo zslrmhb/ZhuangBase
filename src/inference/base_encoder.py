@@ -14,12 +14,3 @@ class BaseEncoder(ABC):
         '''encode data to vector'''
         pass
 
-    @abstractmethod
-    def save_model(self,save_path: str):
-        '''save the current model to given path'''
-        pass
-
-    @abstractmethod
-    def model_info(self) -> dict:
-        '''return model metadata'''
-        pass
